@@ -45,3 +45,9 @@ steps:
     python -m pip install flake8
     flake8 . || true
   displayName: 'Run lint tests'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+
